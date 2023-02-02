@@ -19,7 +19,7 @@ class BookList(Screen):
         global imagens_ref
         global imagens_url_ref
         global livro
-        g = Github("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")
+        g = Github("your git token")
         image_url = "https://raw.githubusercontent.com/freelivros/book_images/main/example"
         repo = g.get_repo("freelivros/book_images")
 
@@ -44,7 +44,7 @@ class BookList(Screen):
 
     def baixar(self):
 
-        pdf_url = "https://raw.githubusercontent.com/freelivros/books/main/example"
+        pdf_url = "https://raw.githubusercontent.com/your_account/books/main/example"
 
         pdf_url_ref = pdf_url.replace('example', imagens_ref.replace('.png', '.pdf'))
 
