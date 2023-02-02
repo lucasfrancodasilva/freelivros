@@ -1,0 +1,81 @@
+MDScreen:
+    MDBottomNavigation:
+        #panel_color: "#eeeaea"
+        selected_color_background: "orange"
+        text_color_active: "lightgrey"
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Home'
+            icon: 'home'
+
+            MDTopAppBar:
+                title: "Free Livros"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            MDTextField:
+                icon: "search"
+                pos_hint: {'center_x': 0.9, 'center_y': 0.9}
+                line_color_normal: app.theme_cls.accent_color
+                icon_left: 'archive-search'
+                hint_text: 'pesquisar'
+                width: 20
+
+            BookList
+
+
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'Pedir Livro'
+            icon: 'upload'
+            MDLabel:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+                size_hint_x: None
+                text: 'Pedir Livro'
+                outline_width: 10
+                outline_color: (0, 0, 0, 1)
+            MDTextField:
+                hint_text: 'Seu nome'
+                icon_left: 'account'
+                icon_right_color: app.theme_cls.primary_color
+                width:300
+                pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+                size_hint_x:None
+                align: 'center'
+            MDTextField:
+                hint_text: 'Seu E-mail'
+                icon_right_color: app.theme_cls.primary_color
+                icon_left: 'mail'
+                width:300
+                pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+                size_hint_x:None
+                align: 'center'
+            MDTextField:
+                hint_text: 'Nome do livro'
+                icon_right_color: app.theme_cls.primary_color
+                icon_left: 'book'
+                width:300
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x:None
+                align: 'center'
+            Button:
+                background_normal: 'image/Paypal.png'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.34}
+                size_hint: (.5, .2)
+                on_press: app.pedirlivro()
+            MDRectangleFlatButton:
+                text: 'Send'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                on_press: app.pedirlivro()
+
+<BookList>:
+    name: "list books"
+    MDBoxLayout:
+        padding: [0, 64, 0, 0]
+        orientation: 'vertical'
+        MDFlatButton:
+            text: 'recarregar'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            on_press: root.savebook()
+            on_release:
+        ScrollView:
+            MDList:
+                id: lista_livros
